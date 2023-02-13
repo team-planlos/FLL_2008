@@ -10,6 +10,10 @@ from pybricks.media.ev3dev import SoundFile, ImageFile
 
 # Create your objects here.
 ev3 = EV3Brick()
+RadL = Motor(Port.B)
+RadR = Motor(Port.C)
+MotorL = Motor(Port.A)
+MotorR = Motor(Port.D)
 
 
 # Write your program here.
