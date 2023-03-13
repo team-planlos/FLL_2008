@@ -18,21 +18,23 @@ ML = Motor(Port.C)
 MR = Motor(Port.B)
 MM = Motor(Port.A)
 
-#SL = ColorSensor(Port.)
-#SR = ColorSensor(Port.)
+SL = ColorSensor(Port.S2)
+SR = ColorSensor(Port.S3)
+
+
+db = DriveBase(ML, MR, 87, 88)
 
 # Write your program here.
 ev3.speaker.beep()
 
-MR.run(100)
-ML.run(-100)
-wait(2000)
-MR.stop()
-ML.stop()
+db.drive(300, 0)
+wait(1500)
+while SL.color() != Color.RED:
+    wait(50)
+db.stop()
+db.turn(60)
+db.drive_straight(300, 300)
 
-MM.run(1000)
-wait(1000)
-MM.stop()
 
 ev3.speaker.beep()
 wait(100)
