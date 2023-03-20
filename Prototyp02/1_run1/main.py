@@ -7,6 +7,10 @@ from pybricks.tools import wait, StopWatch, DataLog
 from pybricks.robotics import DriveBase
 from pybricks.media.ev3dev import SoundFile, ImageFile
 
+import threading
+
+help(threading)
+
 
 # This program requires LEGO EV3 MicroPython v2.0 or higher.
 # Click "Open user guide" on the EV3 extension tab for more information.
@@ -22,19 +26,28 @@ SL = ColorSensor(Port.S2)
 SR = ColorSensor(Port.S3)
 
 
-db = DriveBase(ML, MR, 87, 88)
+db = DriveBase(ML, MR, 88, 88)
 
 # Write your program here.
 ev3.speaker.beep()
 
-db.drive(300, 0)
-wait(1500)
+db.settings(200, 200, 200, 200)
+
+db.straight(100)
+db.turn(-47)
+
+db.drive(200,0)
+wait(3000)
 while SL.color() != Color.RED:
     wait(50)
 db.stop()
-db.turn(60)
-db.drive_straight(300, 300)
+db.turn(30)
+db.straight(100)
+wait(1000)
+db.turn(110)
+db.straight(500)
 
+wait (5000)
 
 ev3.speaker.beep()
 wait(100)
