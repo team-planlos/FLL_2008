@@ -31,21 +31,28 @@ db = DriveBase(ML, MR, 88, 88)
 # Write your program here.
 ev3.speaker.beep()
 
-db.settings(200, 200, 200, 200)
+db.settings(200, 100, 100, 30)
 
-db.straight(100)
-db.turn(-47)
+db.straight(200)
+db.turn(-46.5)
 
+db.drive(50,0)
+wait(800)
+db.drive(100,0)
+wait(800)
 db.drive(200,0)
-wait(3000)
+wait(1000)
 while SL.color() != Color.RED:
     wait(50)
 db.stop()
-db.turn(30)
-db.straight(100)
-wait(1000)
-db.turn(110)
+db.turn(80)
 db.straight(500)
+wait(50)
+db.straight(-500)
+db.stop()
+db.turn(-m40)
+db.drive(30, 4)
+db.straight(1000)
 
 wait (5000)
 
