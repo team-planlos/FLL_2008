@@ -25,6 +25,9 @@ MM = Motor(Port.A)
 SL = ColorSensor(Port.S2)
 SR = ColorSensor(Port.S3)
 
+def driveb(speedr: int, speedl: int):
+    ML.run(speedl)
+    MR.run(speedr)
 
 db = DriveBase(ML, MR, 88, 88)
 
@@ -33,26 +36,35 @@ ev3.speaker.beep()
 
 db.settings(200, 100, 100, 30)
 
-db.straight(200)
+#db.straight(200)
+#db.turn(-46.5)
+driveb(200, 200)
 db.turn(-46.5)
 
-db.drive(50,0)
+#db.drive(50,0)
+driveb(50, 50)
 wait(800)
-db.drive(100,0)
+driveb(100)
+#db.drive(100,0)
 wait(800)
-db.drive(200,0)
+#db.drive(200,0)
+driveb(200)
 wait(1000)
 while SL.color() != Color.RED:
     wait(50)
 db.stop()
 db.turn(80)
-db.straight(500)
+#db.straight(500)
+driveb(500,500)
 wait(50)
-db.straight(-500)
+#db.straight(-500)
+driveb(-500,-500)
 db.stop()
 db.turn(-m40)
-db.drive(30, 4)
-db.straight(1000)
+#db.drive(30, 4)
+driveb(30, 30)
+# db.straight(1000)
+driveb(1000,1000)
 
 wait (5000)
 
